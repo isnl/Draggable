@@ -18,11 +18,15 @@
       height: 100%;
     }
 
+    .container {
+      width: 100%;
+      height: 100%;
+    }
+
     .box {
       width: 200px;
       height: 200px;
       border: 1px dashed #ccc;
-      position: absolute;
       left: 50px;
       top: 50px;
     }
@@ -62,17 +66,20 @@
 </head>
 
 <body>
-  <div class="box">
-    <div class="content">
-      Candy
-    </div>
-    <div class="dragHandle">
+  <div class="container">
+    <div class="box">
+      <div class="content">
+        Candy
+      </div>
+      <div class="dragHandle">
 
-    </div>
-    <div class="resizeHandle">
+      </div>
+      <div class="resizeHandle">
 
+      </div>
     </div>
   </div>
+
 </body>
 
 </html>
@@ -80,14 +87,13 @@
 
 </script>
 <script>
-  //父元素相对定位 relative
-  //当前拖动元素绝对定位 absolute
+  let container = document.querySelector(".container");
   let elem = document.querySelector(".box")
   let dragHandle = document.querySelector(".dragHandle")
   let resizeHandle = document.querySelector(".resizeHandle")
-  let drag = new Draggable(elem, dragHandle, resizeHandle, true, (dragStyle) => {
-    console.log("当前元素现在的位置",dragStyle)
+  new Draggable(container, elem, dragHandle, resizeHandle, true, (dragStyle) => {
+    console.log("Location of the current element after dragging(当前元素拖拽后的位置)", dragStyle)
   }, (resizeStyle) => {
-    console.log("当前元素现在的宽高",resizeStyle)
+    console.log("The size of the current element after dragging(当前元素拖拽后的大小)", resizeStyle)
   });
 </script>

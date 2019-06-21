@@ -18,7 +18,8 @@ class Draggable {
    * @param {*} dragFn - 拖拽完成后的回调
    * @param {*} resizeFn - 缩放完成后的回调
    */
-  constructor(elem, dragHandle, resizeHandle, isPixel, dragFn, resizeFn) {
+  constructor(container, elem, dragHandle, resizeHandle, isPixel, dragFn, resizeFn) {
+    this.container = container;
     this.elem = elem;
     this.dragHandle = dragHandle;
     this.resizeHandle = resizeHandle;
@@ -27,8 +28,17 @@ class Draggable {
     this.resizeFn = resizeFn;
     this.dragMinWidth = 50; //最小宽度
     this.dragMinHeight = 50; //最大宽度
+    this.init();
     this.drag();
     this.resize();
+  }
+  init() {
+    if (getStyle(this.container, "position") === "") {
+      this.container.style.position = "relative";
+    }
+    if (getStyle(this.elem, "position") === "") {
+      this.elem.style.position = "absolute";
+    }
   }
   drag() {
     let disX = 0;
@@ -143,4 +153,13 @@ class Draggable {
       return false;
     }
   }
+
+}
+
+function getStyle(obj, attr) {
+  const style = obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj, false)[attr];
+  if (!style || style === "static") {
+    return "";
+  }
+  return style;
 }
