@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>demo</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        border: 1px dashed #ccc;
+        left: 50px;
+        top: 50px;
+      }
+
+      .content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+      }
+
+      .dragHandle {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background: #000;
+        position: absolute;
+        left: 0;
+        top: -15px;
+      }
+
+      .resizeHandle {
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid #b2b2b2;
+        border-bottom: 2px solid #b2b2b2;
+        right: 0px;
+        bottom: 0px;
+        overflow: hidden;
+        cursor: nw-resize;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="box">
+        <div class="content">
+          Peanut
+        </div>
+        <div class="dragHandle"></div>
+        <div class="resizeHandle"></div>
+      </div>
+    </div>
+  </body>
+</html>
+<script src="/__build__/drag.js"></script>
+<script>
+  // let container = document.querySelector(".container");
+  // let elem = document.querySelector(".box");
+  // let dHandle = document.querySelector(".dragHandle");
+  // let rHandle = document.querySelector(".resizeHandle");
+  // console.log("pDrag ", pDrag);
+
+  // new Draggable({
+  //   container,
+  //   elem,
+  //   dHandle,
+  //   rHandle,
+  //   isPixel: true,
+  //   dFn: (dStyle) => {
+  //     console.log("dFn", dStyle);
+  //   },
+  //   rFn: (rStyle) => {
+  //     console.log("rFn", rStyle);
+  //   },
+  // });
+</script>
